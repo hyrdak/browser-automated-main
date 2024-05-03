@@ -1,0 +1,95 @@
+{
+    "plugins": ["prettier", "simple-import-sort", "import", "react-hooks"],
+    "extends": [
+        "plugin:import/typescript",
+        "prettier",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "overrides": [
+        {
+            "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+            "rules": {
+                "@typescript-eslint/no-var-requires": "warn",
+                "import/no-unresolved": [2, { "caseSensitive": false }],
+                "no-duplicate-imports": "error",
+                "sort-imports": "off",
+                "import/order": "off",
+                "import/first": "error",
+                "import/newline-after-import": "error",
+                "import/no-duplicates": "error",
+                "simple-import-sort/exports": "error",
+                "simple-import-sort/imports": [
+                    "error",
+                    {
+                        "groups": [
+                            // Node.js builtins. You could also generate this regex if you use a `.js` config.
+                            [
+                                "^(assert|buffer|child_process|cluster|console|constants|crypto|dgram|dns|domain|events|fs|http|https|module|net|os|path|punycode|querystring|readline|repl|stream|string_decoder|sys|timers|tls|tty|url|util|vm|zlib|freelist|v8|process|async_hooks|http2|perf_hooks)(/.*|$)"
+                            ],
+                            // Packages `express`, `react` packages related packages come first.
+                            ["^react", "^react-router-dom", "^\\w"],
+
+                            ["^@?\\w", "^antd", "^react-icons", "^clsx", "^lodash", "^\\w"],
+                            // Internal packages.
+                            [
+                                "^/.*|$",
+                                "^interfaces/.*|$",
+                                "^resources/.*|$",
+                                "^constant/.*|$",
+                                "^configs/?.*|$",
+                                "^middleware/.*|$",
+                                "^services/.*|$",
+                                "^apis/.*|$",
+                                "^utils/.*|$",
+                                "^helpers/.*|$",
+                                "^routing/.*|$",
+                                "^data/.*|$",
+                                "^hocs/.*|$",
+                                "^hooks/.*|$",
+                                "^contexts/.*|$",
+                                "^pages/.*|$",
+                                "^modules/.*|$",
+                                "^components/.*|$",
+                                "^styles/.*|$"
+                            ],
+                            [
+                                // Parent imports. Put `..` last.
+                                "^\\.\\.(?!/?$)",
+                                "^\\.\\./?$",
+                                // Other relative imports. Put same-folder imports and `.` last.
+                                "^\\./(?=.*/)(?!/?$)",
+                                "^\\.(?!/?$)",
+                                "^\\./?$"
+                            ],
+                            // Style imports.
+                            ["^.+\\.s?css$"],
+                            // Side effect imports.
+                            ["^\\u0000"]
+                        ]
+                    }
+                ],
+
+                "newline-before-return": 1,
+                "no-useless-return": 1,
+                "prefer-const": 1,
+                "no-unused-vars": 0,
+                "no-throw-literal": 0,
+                "import/namespace": 0,
+                "@typescript-eslint/no-empty-function": ["off"],
+                "@typescript-eslint/no-empty-interface": ["off"],
+                "@typescript-eslint/no-explicit-any": ["off"],
+                "@typescript-eslint/no-unused-vars": "off",
+                "react-hooks/rules-of-hooks": "error",
+                "react-hooks/exhaustive-deps": "warn" // <--- THIS IS THE NEW RULE
+            }
+        }
+    ],
+    "settings": {
+        "import/resolver": {
+            "typescript": {
+                "project": ["tsconfig.json"]
+            }
+        }
+    }
+}

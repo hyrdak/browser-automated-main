@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  app:
+    container_name: app
+    image: app_image
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./:/src
+    ports:
+      - "9530:3000"

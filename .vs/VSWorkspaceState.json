@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\modules",
+    "\\src\\modules\\kinds",
+    "\\src\\modules\\kinds\\pages",
+    "\\src\\modules\\kinds\\pages\\kind-listing",
+    "\\src\\modules\\kinds\\pages\\kind-listing\\components",
+    "\\src\\modules\\kinds\\pages\\kind-listing\\components\\Create-nodes-modal",
+    "\\src\\modules\\kinds\\pages\\kind-listing\\components\\Edit-nodes-modal",
+    "\\src\\modules\\kinds\\pages\\kind-listing\\components\\filter-component"
+  ],
+  "SelectedNode": "\\package.json",
+  "PreviewInSolutionExplorer": false
+}
